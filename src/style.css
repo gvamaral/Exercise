@@ -1,0 +1,147 @@
+body {
+    margin: 20px;
+    padding: 0;
+    background-color: #2A2B2E;
+    color: #ACEB98;
+}
+h3 {
+    border-top: #db1709 2px dashed;
+    color: #87FF65;
+    padding: 10px;
+    font-size: 25px;
+}
+.FizzBuzz, .GoodHour, .Palindrome, .Alert, .Cart {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.plusandminus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#number, i {
+    font-size: 40px;
+}
+.beforeBtn {
+    display: flex;
+    border: 1px solid #87FF65;
+    background-color: #2A2B2E;
+    color: #ACEB98;
+}
+.result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #87FF65;
+    width: 300px;
+    height: 30px;
+}
+#resultHour {
+    background-color: #2A2B2E;
+}
+
+.button-make {
+  align-items: center;
+  background-image: linear-gradient(144deg,#448432, #5a7c50 50%,#6a7a6c);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: #000 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-make:active,
+.button-make:hover {
+  outline: 0;
+}
+
+.button-make span {
+  background-color: rgb(5, 6, 45);
+  padding: 10px 20px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-make:hover span {
+  background: none;
+}
+
+/* button {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: #ACEB98;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #87FF65,
+    #48ff00,
+    #ACEB98,
+    #A4C2A8,
+    #5A5A66,
+    #87FF65
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+} */

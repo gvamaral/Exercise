@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Games</title>
+    <link rel="stylesheet" href="src/style.css">
+    <script src="https://kit.fontawesome.com/d04b856918.js" crossorigin="anonymous"></script>
+    <script defer src="src/script.js"></script>
+</head>
+<body>
+    <h3>Play FizzBuzz!</h3>
+    <div class="FizzBuzz">
+        <input type="text" id="fizz" class="beforeBtn">
+        <button class="button-make" id="btnFizz" onclick="displayFizz()"><span class="text">Fizz Buzz it!</span></button>
+        <span id="result" class="result"></span>
+    </div>
+
+    <h3>What is the hour?</h3>
+    <div class="GoodHour">
+        <span id="time" class="beforeBtn"></span>
+        <button class="button-make" id="btnHour" onclick="displayHour()"><span class="text">Click here!</span></button>
+        <span id="resultHour" class="result"></span>
+    </div>
+    
+    <h3>Is it your Birthday?</h3>
+    <div class="Birthday">
+        <div id="birthday"></div>
+    </div>
+
+    <h3>Is it a Palindrome?</h3>
+    <div class="Palindrome">
+        <input type="text" id="palCheck" class="beforeBtn">
+        <button class="button-make" id="btnPalindrome" onclick="displayPalindrome()"><span class="text">Check it!</span></button>
+        <span id="palindrome" class="result"></span>
+    </div>
+
+    <h3>List</h3>
+    <div class="List">
+        <ul id="bands"></ul>
+    </div>
+
+    <h3>Write something, and get an Alert!</h3>
+    <div class="Alert">
+        <input type="text" id="toAlert" class="beforeBtn">
+        <button class="button-make" id="btnAlert" onclick="displayAlert()"><span class="text">Alert it!</span></button>
+    </div>
+
+    <h3>Give me those likes!</h3>
+    <div class="Cart">
+        <i class="fa-regular fa-thumbs-up"></i><span id="number"> 0</span>
+        <div class="plusandminus">
+            <button id="plus" onclick="adding()"><span class="text">+</span></button>
+            <button id="minus" onclick="subtracting()"><span class="text">-</span></button>
+        </div>
+    </div>
+</body>
+</html>
