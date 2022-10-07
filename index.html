@@ -8,6 +8,11 @@
     <script defer src="src/script.js"></script>
 </head>
 <body>
+    <!-- Maybe make a header later -->
+    <header>
+        <nav>
+        </nav>
+    </header>
     <h3>Play FizzBuzz!</h3>
     <div class="FizzBuzz">
         <input type="text" id="fizz" class="beforeBtn">
@@ -53,5 +58,67 @@
             <button id="minus" onclick="subtracting()"><span class="text">-</span></button>
         </div>
     </div>
+
+    <h3>Add items to this list!</h3>
+    <div class="List">
+        <input type="text" id="listInput" class="beforeBtn">
+        <button class="button-make" id="btnList" onclick="displayItems()"><span class="text">Add</span></button>
+    </div>
+    <ul id="items"></ul>
+
+    <div id="modal">
+        <div id="popup">
+            <button onclick="closeModal()">&times;</button>
+        </div>
+    </div>
+    <h3>Get Cat Images</h3>
+    <div class="Cats">
+        <button class="button-make" id="btnCat" onclick="displayCat()"><span class="text">See Cat Image</span></button>
+        <a href="exercise.html"><button class="button-make" id="btnCats"><span class="text">See more Cats</span></button></a>
+    </div>
+
+    <h3>Bidding App</h3>
+    <div class="Bid">
+        <input type="number" id="bidInput0" class="beforeBtn">
+        <button class="button-make" id="btnBid0" onclick="addBid(0)"><span class="text">Place Bid</span></button>
+        <button class="button-make" id="btnDisplay0" onclick="displayBids(0)"><span class="text">Show Bids by 1</span></button>
+    </div>
+    <div class="Bid">
+        <input type="number" id="bidInput1" class="beforeBtn">
+        <button class="button-make" id="btnBid1" onclick="addBid(1)"><span class="text">Place Bid</span></button>
+        <button class="button-make" id="btnDisplay1" onclick="displayBids(1)"><span class="text">Show Bids by 2</span></button>
+    </div>
+    <ul id="bidDisplay"></ul>
+    <!-- Includes main.js and calculator.js -->
+    <h3>Import/Export calculator Page</h3>
+    <div class="webpage">
+        <a href="webpage.html">Web Page</a>
+    </div>
+
+    <h3>Validate number</h3>
+    <p>Enter your phone number (with area code) and then click "Check". The expected format is ###-###-####.</p>
+    <form action="#">
+        <input id="phone"><button onclick="testInfo(document.getElementById('phone'));">Check</button>
+    </form>
+
+    <h3>Tic Tac Toe</h3>
+    <div class="tictactoe">
+        <div class="firstRow">
+            <div id="a1" onclick="changeXO(1)"></div>
+            <div id="a2" onclick="changeXO(2)"></div>
+            <div id="a3" onclick="changeXO(3)"></div>
+        </div>
+        <div class="secondRow">
+            <div id="a4" onclick="changeXO(4)"></div>
+            <div id="a5" onclick="changeXO(5)"></div>
+            <div id="a6" onclick="changeXO(6)"></div>
+        </div>
+        <div class="thirdRow">
+            <div id="a7" onclick="changeXO(7)"></div>
+            <div id="a8" onclick="changeXO(8)"></div>
+            <div id="a9" onclick="changeXO(9)"></div>
+        </div>
+    </div>
+    <button>X</button>
 </body>
 </html>

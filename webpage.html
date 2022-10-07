@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator I guess</title>
+    <script defer type="module" src="./src/calculator.js"></script>
+    <script defer type="module" src="./src/main.js"></script>
+</head>
+<body>
+    <div class="plus">
+        <input type="number" id="firstNumberPlus">
+        <span>+</span>
+        <input type="text" id="secondNumberPlus">
+        <button id="plusResult" onclick="displaySum()">=</button>
+        <span id="resultPlus"></span>
+    </div>
+    <div class="minus">
+        <input type="number" id="firstNumberMinus">
+        <span>-</span>
+        <input type="text" id="secondNumberMinus">
+        <button id="minusResult" onclick="displayDifference()">=</button>
+        <span id="resultMinus"></span>
+    </div>
+</body>
+</html>

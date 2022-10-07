@@ -145,7 +145,7 @@ inputPalindrome.addEventListener("keypress", function(event) {
 // Making Lists appear on HTML through JS
 
 let bands = [
-    {name: 'Arctic Monkeys', image:'images/am.jpg'},
+    {name: 'Arctic Monkeys', image:'images/am-sound.gif'},
     {name: 'Ludo', image:'images/ludo.jpg'}
 ];
 let newHTML = '';
@@ -154,7 +154,7 @@ function showBands(bandItem) {
     return `
     <li>
         <div>Band name is ${bandItem.name}</div>
-        <img src="${bandItem.image}" width="100" length="100">
+        <img src="${bandItem.image}" width="200" length="200">
     </li>
     `
 };
@@ -235,10 +235,256 @@ function subtracting(){
     likes -= 1;
     display.innerHTML = likes;
 }
+// ------------------------------------------------------------------------------------ //
+// OOP Exercise
+function Car(make, model, year, engine) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.engine = engine;
+};
+function Engine(cylinders, liters, hp) {
+    this.cylinders = cylinders;
+    this.liters = liters;
+    this.hp = hp;
+};
+let v6turbo = new Engine(6, 3.8, 565);
+let myCar = new Car('nissan', 'GT-R', 2015, v6turbo);
+
+// making an input get list items
+
+let array = [];
+let inputItem = document.querySelector('#listInput');
+function addListItems() {
+    array.push(inputItem.value);
+}
+function displayItems() {
+    let itemOutput = document.querySelector('#items');
+    itemOutput.innerHTML = ''
+    addListItems();
+    array.forEach(function(item){
+        itemOutput.innerHTML += `<li>${item}</li>`
+    });
+}
+inputItem.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("btnList").click();
+    }
+});
+// ------------------------------------------------------------------------------------ //
+// Classes
+
+class List {
+    constructor(name, id, tasks) {
+        this.name = name;
+        this.id = id;
+        this.active = false;
+        this.complete = false;
+        this.tasks = tasks;
+    }
+    addTask(task) {
+        this.tasks.push(task);
+    }
+    rename(name) {
+        this.name = name;
+    }
+    deleteTask(taskId) {
+
+    }
+    complete() {
+        this.complete = true;
+    }
+}
+
+class taskItem {
+    constructor(id, text) {
+        this.id = id;
+        this.text = text;
+        this.completed = false;
+    }
+    complete(id) {
+
+    }
+    rename(id) {
+
+    }
+}
+// ------------------------------------------------------------------------------------ //
+// this is synchronous (Delete commenting to see)
+/*
+const myName = 'Gabriel';
+console.log(myName);
+// this is asynchronus, done only after 5 seconds (5000)
+window.setTimeout(function() {
+    console.log('5 seconds has passed');
+}, 5000);
+
+function runThis(doSomethingWithName) {
+    return new Promise(function(resolve, reject) {
+        const name = prompt('Input your name');
+        resolve(name)
+    })
+
+    // doSomethingWithName(name)
+}
+function consoleTheName(name) {
+    runThis().then(function(name) {
+        console.log(name);
+    });
+}
+
+function consoleTheNameUppercase(name) {
+    runThis().then(function (name) {
+        console.log(name.toUpperCase())
+    });
+}
+consoleTheName();
+consoleTheNameUppercase();
+// runThis(consoleTheName);
+// runThis(consoleTheNameUppercase);
+// runThis(function(name) {console.log(name.toLowerCase())});
+*/
+// Another asynchronus (Delete commenting to see)
+/*
+async function getNameFromAsyncFunction() {
+    const name = prompt('Name please?');
+    return name;
+}
+async function consoleLogName() {
+    const name = await getNameFromAsyncFunction();
+    console.log(name)
+}
+async function consoleLogNameToUpperCase() {
+    const name = await getNameFromAsyncFunction();
+    console.log(name.toUpperCase());
+}
+consoleLogName();
+consoleLogNameToUpperCase();
+*/
+// Make background color change randomly on the body (Delete commenting to see)
+/*
+function makeBackgroundDifferentColor(color) {
+    window.document.body.style.background = color;
+}
+function getRandomColorNumber(){
+    return Math.random() * 255;
+};
+setInterval(function() {
+    const red = getRandomColorNumber();
+    const green = getRandomColorNumber();
+    const blue = getRandomColorNumber();
+    const color = `rgb(${red}, ${green}, ${blue})`
+    makeBackgroundDifferentColor(color)
+}, 2000)
+*/
+// ------------------------------------------------------------------------------------ //
+// Show cat Image through
+
+async function getImageUrls() {
+    const data = await new Promise((resolve, reject) => {
+    fetch('https://api.thecatapi.com/v1/images/search?limit=10')
+        .then((response) => response.json())
+        .then((data) => resolve(data))
+        });
+    const imageUrls = data.map((dataItem) => dataItem.url)
+    return imageUrls
+}
+function makeImages(imageUrls) {
+    const images = document.querySelector('#popup')
+    const html = imageUrls.reduce((accum, imageUrlItem) => {
+        return `
+        <button onclick="closeModal()">&times;</button>
+        <img src="${imageUrlItem}" width="480" height="280">`
+    }, '')
+    images.innerHTML = html
+}
+async function displayCat() {
+    document.getElementById('modal').style.display = "flex";
+    document.getElementById('popup').style.height = "300px";
+    document.getElementById('popup').style.width = "500px";
+    const imageUrls = await getImageUrls();
+    makeImages(imageUrls);
+}
+function closeModal() {
+    document.getElementById('modal').style.display = "none";
+}
+
+// ------------------------------------------------------------------------------------ //
+//Bidding app with Local Storage
+
+let bids = [{name:1, bid:[]}, {name:2, bid:[]}];
+let storedBids = JSON.parse(localStorage.getItem('bids'));
+if (storedBids) {
+    bids = JSON.parse(localStorage.getItem('bids'));
+}
+function addBid(which) {
+    let input = document.querySelector(`#bidInput${which}`);
+    bids[which].bid.push(input.value);
+    displayBids(which);
+    saveBid();
+}
+function displayBids(which) {
+    let display = document.querySelector('#bidDisplay');
+    display.innerHTML = ``;
+    for (let i = 0; i < bids[which].bid.length; i++) {
+        display.innerHTML += `<li>$${bids[which].bid[i]} by ${bids[which].name}</li>`
+    };
+}
+function saveBid() {
+    localStorage.setItem('bids', JSON.stringify(bids));
+}
+// ------------------------------------------------------------------------------------ //
+// Create Regex that will check the validity of a phone number
+// Examples of which reges you can use
+// [0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]
+// ^\d{3}-\d{3}-\d{4}$
+// ^[0-9]{3}-[0-9]{3}-[0-9]{4}$
+// ^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$           <--- Matches very well posibilities
+// (?:\d{3})|\(\d{3}\))([-\/\. ])\d{3}\1\d{4}
+
+let re = /(?:\+?\d{1,3})?(?:\d{3}|\(\d{3}\))([-\/\. ])\d{3}\1\d{4}/;
+function testInfo(phoneInput) {
+    let OK = re.exec(phoneInput.value);
+    if (!OK) {
+        console.error(phoneInput.value + ' isn\'t a phone number with area code!');
+    }
+    else {
+        console.log('Thanks, your phone number is ' + OK[0]);
+    }
+}
+function add(x, y){
+    return x + y
+}
+// ------------------------------------------------------------------------------------ //
+// - Create a webpage
+// - Create a 'carousel' of pictures displayed will change to the next image
+//   - When you click on the left arrow the im
+//   - Display on picture.
+//     - Have a left arrow to the left of the picture
+//     - Have a right arrow to the right of the picture
+//   - When you click the right arrow the image age displayed will go to the previous image
+
+
+
+// ------------------------------------------------------------------------------------ //
+// Create a Tic Tac Toe game
+// Grid will be 3 * 3
+// - When the first user clicks on an empty square that square will become X
+// - When the second user clicks on an empty square that square will become O
+// - The user will alternate every turn, so first click will be X, then second click will be O the third click C, etc...
+// - Don't worry about checking if someone has won. We will discuss that later.
+let change = true
+function changeXO(number) {
+    let square = document.querySelector(`#a${number}`);
+    square.innerHTML = change? 'X':'O';
+    change = !change;
+}
 
 function runWhenPageLoads() {
+    displayBids(0);
     displayBirthday();
     displayHour();
-}
+};
 
 window.onload = runWhenPageLoads;
