@@ -472,7 +472,7 @@ function add(x, y){
 // Grid will be 3 * 3
 // - When the first user clicks on an empty square that square will become X
 // - When the second user clicks on an empty square that square will become O
-// - The user will alternate every turn, so first click will be X, then second click will be O the third click C, etc...
+// - The user will alternate every turn, so first click will be X, then second click will be O the third click X, etc...
 // - Don't worry about checking if someone has won. We will discuss that later.
 let change = true
 function changeXO(number) {
