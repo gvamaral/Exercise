@@ -3,9 +3,15 @@ body {
     padding: 0;
     background-color: #2A2B2E;
     color: #ACEB98;
+    cursor: url("../cursor/red-saber.gif"), auto;
 }
 a {
     text-decoration: none;
+    cursor: url("../cursor/blue-saber.gif"), auto;
+}
+button {
+  cursor: url("../cursor/blue-saber.gif"), auto;
+
 }
 .webpage a {
     text-decoration: underline;
@@ -17,12 +23,12 @@ h3 {
     padding: 10px;
     font-size: 25px;
 }
-.FizzBuzz, .GoodHour, .Palindrome, .Alert, .Cart, .List, .Cats, .Bid{
+.FizzBuzz, .GoodHour, .Palindrome, .Alert, .Cart, .List, .Cats, .Bid, .phoneValidation, .tictactoe{
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.plusandminus, .tictactoe {
+.plusandminus, .ticCollums {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,6 +41,7 @@ h3 {
     border: 1px solid #87FF65;
     background-color: #2A2B2E;
     color: #ACEB98;
+    cursor: url("../cursor/straight-red-saber.gif"), auto;
 }
 .result {
     display: flex;
@@ -68,7 +75,6 @@ h3 {
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  cursor: pointer;
 }
 
 .button-make:active,
@@ -211,5 +217,4 @@ button:after {
   justify-content: center;
   font-size: 30px;
   color: #87FF65;
-  cursor: pointer;
 }

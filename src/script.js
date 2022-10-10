@@ -16,7 +16,7 @@ function fizzBuzz(numb) {
     }
     else {
         return numb;
-    }   
+    }
 };
 function displayFizz() {
     let divResult = document.querySelector("#result");
@@ -60,7 +60,6 @@ function displayHour() {
     let span = document.querySelector("#time");
     let today = new Date();
     let currentHour = today.getHours();
-    console.log (currentHour);
     divResult.innerHTML = goodHour(currentHour);
     span.innerHTML = today;
     if((currentHour >= 0) && (currentHour < 8)) {
@@ -209,9 +208,9 @@ function getDisplayMyName(name) {
 displayMyName();
 
 let doMath = getMathFunction('+');
-console.log(doMath(1, 2));
+// console.log(doMath(1, 2));
 doMath = getMathFunction('-')
-console.log(doMath(1, 2))
+// console.log(doMath(1, 2));
 function getMathFunction(mathSymbol) {
     if(mathSymbol === '+'){
         return (a, b) => a + b
@@ -479,7 +478,54 @@ function changeXO(number) {
     let square = document.querySelector(`#a${number}`);
     square.innerHTML = change? 'X':'O';
     change = !change;
+    let body = document.querySelector("body");
+    let inputs = document.querySelectorAll(".beforeBtn");
+    if (change) {
+        body.style.cursor = `url("./cursor/red-saber.gif"), auto`;
+        inputs.forEach(input => {
+            input.style.cursor = `url("./cursor/straight-red-saber.gif"), auto`;
+        });
+    }
+    else {
+        body.style.cursor = `url("./cursor/green-saber.gif"), auto`;
+        inputs.forEach(input => {
+            input.style.cursor = `url("./cursor/straight-green-saber.gif"), auto`;
+        });
+    }
 }
+function resetXO() {
+    let squares = document.querySelectorAll(".square");
+    squares.forEach(square => {
+        square.innerHTML = ""
+    });
+    change = true;
+    let body = document.querySelector("body");
+    let inputs = document.querySelectorAll(".beforeBtn");
+    body.style.cursor = `url("./cursor/red-saber.gif"), auto`;
+    inputs.forEach(input => {
+        input.style.cursor = `url("./cursor/straight-red-saber.gif"), auto`;
+    });
+}
+// ------------------------------------------------------------------------------------ //
+// Linked Lists
+
+class linkedList {
+    constructor(head = null) {
+        this.head = head
+    }
+}
+class listNode {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+let node1 = new listNode(2);
+let node2 = new listNode(5);
+node1.next = node2;
+let list = new linkedList(node1);
+console.log(list.head.next.data);
+
 
 function runWhenPageLoads() {
     displayBids(0);

@@ -26,7 +26,7 @@
         <button class="button-make" id="btnHour" onclick="displayHour()"><span class="text">Click here!</span></button>
         <span id="resultHour" class="result"></span>
     </div>
-    
+
     <h3>Is it your Birthday?</h3>
     <div class="Birthday">
         <div id="birthday"></div>
@@ -97,28 +97,32 @@
 
     <h3>Validate number</h3>
     <p>Enter your phone number (with area code) and then click "Check". The expected format is ###-###-####.</p>
-    <form action="#">
-        <input id="phone"><button onclick="testInfo(document.getElementById('phone'));">Check</button>
+    <form action="#" class="phoneValidation">
+        <input id="phone" class="beforeBtn"><button class="button-make" onclick="testInfo(document.getElementById('phone'));"><span class="text">Check</span></button>
     </form>
 
     <h3>Tic Tac Toe</h3>
     <div class="tictactoe">
-        <div class="firstRow">
-            <div id="a1" onclick="changeXO(1)"></div>
-            <div id="a2" onclick="changeXO(2)"></div>
-            <div id="a3" onclick="changeXO(3)"></div>
+        <div class="ticOptions">
+            <button class="button-make" onclick="resetXO()"><span class="text">Reset!</span></button>
         </div>
-        <div class="secondRow">
-            <div id="a4" onclick="changeXO(4)"></div>
-            <div id="a5" onclick="changeXO(5)"></div>
-            <div id="a6" onclick="changeXO(6)"></div>
-        </div>
-        <div class="thirdRow">
-            <div id="a7" onclick="changeXO(7)"></div>
-            <div id="a8" onclick="changeXO(8)"></div>
-            <div id="a9" onclick="changeXO(9)"></div>
+        <div class="ticCollums">
+            <div class="firstRow">
+                <div class="square" id="a1" onclick="changeXO(1)"></div>
+                <div class="square" id="a2" onclick="changeXO(2)"></div>
+                <div class="square" id="a3" onclick="changeXO(3)"></div>
+            </div>
+            <div class="secondRow">
+                <div class="square" id="a4" onclick="changeXO(4)"></div>
+                <div class="square" id="a5" onclick="changeXO(5)"></div>
+                <div class="square" id="a6" onclick="changeXO(6)"></div>
+            </div>
+            <div class="thirdRow">
+                <div class="square" id="a7" onclick="changeXO(7)"></div>
+                <div class="square" id="a8" onclick="changeXO(8)"></div>
+                <div class="square" id="a9" onclick="changeXO(9)"></div>
+            </div>
         </div>
     </div>
-    <button>X</button>
 </body>
 </html>
